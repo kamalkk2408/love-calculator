@@ -1,6 +1,7 @@
 package com.kishore.kamal.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +16,10 @@ public class LCController {
     }
 
     @GetMapping("/calculate")
-    public String calculate(@RequestParam String yourName, @RequestParam String crushName){
-        return "index-page";
+    public String calculate(@RequestParam String yourName, @RequestParam String crushName, Model model){
+        model.addAttribute("yourName", yourName);
+        model.addAttribute("crushName", crushName);
+        return "result-page";
     }
 
 }
