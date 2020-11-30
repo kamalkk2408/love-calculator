@@ -1,8 +1,10 @@
 package com.kishore.kamal.controller;
 
+import com.kishore.kamal.dto.RequestDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,14 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LCController {
 
     @GetMapping("")
-    public String index(){
+    public String index(@ModelAttribute("request") RequestDto requestDto) {
         return "index-page";
     }
 
     @GetMapping("/calculate")
-    public String calculate(@RequestParam String yourName, @RequestParam String crushName, Model model){
-        model.addAttribute("yourName", yourName);
-        model.addAttribute("crushName", crushName);
+    public String calculate(@ModelAttribute("request") RequestDto requestDto){
         return "result-page";
     }
 

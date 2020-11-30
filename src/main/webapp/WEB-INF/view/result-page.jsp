@@ -16,10 +16,10 @@
 <form action ="lc/calculate" method="get">
     <div align="center">
         <p>
-            <label> Your Name : </label>${yourName}
+            <label> Your Name : </label>${request.yourName}
         </p>
         <p>
-            <label> Crush Name : </label> ${crushName}
+            <label> Crush Name : </label> ${request.crushName}
         </p>
     </div>
 </form>
